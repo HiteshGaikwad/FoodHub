@@ -47,7 +47,7 @@ const Header=()=>{
         <div className="sm:hidden" key="cart"><Link className=" hover:text-blue-600 sm:hidden flex w-12 h-14 justify-center items-center relative text-xl font-bold mt-3 mr-5" to={"/cart"}>Cart <div className="m-1 w-7 sm:hidden rounded-full flex items-center justify-center h-7 text-lg text-white bg-red-500 hover:bg-red-700 absolute bottom-6 left-8">{items.length}</div></Link></div>
         { (!isMenuOpen) ? 
         <img src={IMG_MENU_ICON_URL} className="bg-blend-darken w-16 flex sm:hidden"  onClick={()=>setIsMenuOpen(true)}/> :
-        <div className="sm:hidden border border-black h-screen absolute top-0 right-0 z-50 bg-white shadow-xl shadow-gray-500 w-2/4 rounded-tl-xl rounded-bl-xl">
+        <div className="sm:hidden h-screen absolute top-0 right-0 z-50 bg-white shadow-xl shadow-gray-500 w-2/4 rounded-tl-xl rounded-bl-xl">
         <img src={IMG_CLOSE_ICON_URL} className="bg-blend-darken w-12 h-12 flex sm:hidden mt-5"  onClick={()=>setIsMenuOpen(false)}/>
         <div className="flex flex-col justify-center items-center gap-10 mt-16">
         <ul className="flex flex-col mt-9 gap-3 space-x-5 py-4 items-center text-lg font-bold">
