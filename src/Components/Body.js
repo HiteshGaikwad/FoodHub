@@ -45,7 +45,7 @@ const Restraurant=()=>{
            setFilteredRestraurant(data);
           }}>Search</button> 
        </div>
-       <div className="flex min-h-screen w-full justify-center">
+       <div className="flex w-full justify-center">
       <div className="flex w-11/12 p-3 flex-wrap  my-5 gap-5">
         {
           filteredRestraurant?.length===0?<h1 className="sm:text-4xl text-xl font-bold w-full h-72 flex justify-center items-center">No Match Found For Your Search...!!</h1>:

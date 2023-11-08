@@ -57,7 +57,7 @@ const RestaurantDetails=()=>{
             <div className="w-2/4 max-sm:w-screen h-2/4">
                 <img className="sm:w-full w-2/3 h-2/5 sm:h-80 rounded-xl" src={IMG_CDN_URL+menu?.info?.cloudinaryImageId}/>  
             </div>
-            <div className="flex max-sm:items-center max-sm:w-4/5 max-sm:h-fit flex-col w-full">
+            <div className="flex items-center max-sm:w-4/5 max-sm:h-fit flex-col w-full">
             <div className="flex max-sm:p-5 flex-col gap-3 w-full h-fit sm:h-64 p-2 sm:p-5 rounded-xl shadow-lg shadow-gray-500">
             <h1 className="sm:text-4xl text-xl font-bold">{menu?.info?.name}</h1>
             <div className="flex max-sm:flex-col max-sm:gap-6 justify-between align-middle" >
@@ -68,11 +68,11 @@ const RestaurantDetails=()=>{
                 </div>
                 <div className="sm:w-36 w-20">
                     <h3 className="sm:p-2 p-1 max-sm:text-sm text-center shadow shadow-gray-500">{"⭐ "+menu?.info?.avgRating}</h3>
-                    <h4 className="sm:p-2 p-1 max-sm:text-xs shadow-md shadow-gray-500">{menu?.info?.totalRatingsString+" ratings"}</h4>
+                    <h4 className="sm:p-2 p-1 max-sm:text-xs text-center  shadow-md shadow-gray-500">{menu?.info?.totalRatingsString+" ratings"}</h4>
                 </div>
                 </div>
             </div>
-            <button className="w-2/3  h-10 sm:h-12 mt-3 sm:mt-5 text-md sm:text-2xl font-semibold hover:font-bold rounded-xl bg-orange-400 hover:bg-orange-500 border" onClick={()=>
+            <button className="w-2/3  h-10 sm:h-12 mt-5 sm:mt-5 text-md sm:text-2xl font-semibold hover:font-bold rounded-xl bg-orange-400 hover:bg-orange-500 border" onClick={()=>
                 handleAddItems(menu)} >Add to Cart</button>
             </div>
            
