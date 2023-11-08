@@ -4,11 +4,13 @@
     "description": "Creating this app for learning react.",
     "scripts": {
         "start": "parcel index.html",
+        "build": "parcel build index.html",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "author": "Hitesh Gaikwad",
     "license": "ISC",
     "devDependencies": {
+        "@babel/core": "^7.23.2",
         "parcel": "^2.10.2",
         "process": "^0.11.10"
     },
