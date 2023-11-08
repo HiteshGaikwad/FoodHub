@@ -1,5 +1,8 @@
 
+
 const TremConditions=()=>{
+
+
     return (
         <div className="my-5 flex flex-col gap-4 items-center ">
         <h1 className="text-4xl font-bold">Terms & Conditions</h1>
