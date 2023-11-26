@@ -7,9 +7,14 @@ import {findSearchText} from "../../utils/helper";
 import {FETCH_RESTAURANT_URL} from "../../Config";
 import useOnline from "../../utils/useOnline";
 import RestaurantContext from "../../utils/RestaurantContext";
+import { useDispatch, useSelector } from "react-redux";
+import { addRestaurants } from "../../utils/RestaurantsListSlice";
 
 const Restraurant=()=>{
 
+
+  const restaurantsList= useSelector((store)=>store.restaurantsList.list);
+  const dispatch= useDispatch();
 
    const [searchText, setSearchText]= useState("");
    const [filteredRestraurant, setFilteredRestraurant] = useState([]);
@@ -23,12 +28,17 @@ const Restraurant=()=>{
       },[]);
 
     async function getRestraurant(){
+      if(restaurantsList.length!==0){
+        setFilteredRestraurant(restaurantsList)
+        setAllRestraurant(restaurantsList);
+      } else{
         const data= await fetch(FETCH_RESTAURANT_URL);
         const result= await data.json();
         setFilteredRestraurant(result?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
         setAllRestraurant(result?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
        setRestaurants(result?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-      }
+       dispatch(addRestaurants(result?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants));
+      }}
 
       const isOnline= useOnline();
 
@@ -53,7 +63,9 @@ const Restraurant=()=>{
                 return (<Link className="flex w-24 sm:w-80 sm:p-1 rounded-lg shadow-lg flex-col shadow-gray-500 flex-wrap gap-2 transition-transform ease-linear hover:scale-105 duration-200" to={"/restaurant/"+restraurant?.info?.id} key={restraurant?.info?.id}><RestraurantCard restraurant={restraurant} /></Link>)
             })
         } 
+
       </div>
+
       </div>
       </>
     )

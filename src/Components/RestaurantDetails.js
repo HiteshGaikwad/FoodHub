@@ -5,17 +5,17 @@ import Shimmer from "./Shimmer";
 import{Link} from "react-router-dom";
 import useOnline from "../../utils/useOnline";
 import RestaurantContext from "../../utils/RestaurantContext";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {addItems} from "../../utils/cartSlice"
 
 
 const RestaurantDetails=()=>{
 
 
+    const restaurantsList= useSelector((store)=>store.restaurantsList.list);
     const [menu, setMenu]=useState([]);
     const {id}= useParams();
 
-    // const {restaurants, setRestaurants}= useContext(RestaurantContext);
 
     const dispatch= useDispatch();
 
@@ -25,22 +25,15 @@ const RestaurantDetails=()=>{
     }
 
     useEffect(()=>{
-        // getRestaurantMenu();
-        getRestaurantS();
-        
+        filterRestaurant();
     },[])
 
-    async function getRestaurantS(){
-        const data= await fetch(FETCH_RESTAURANT_URL);
-        const result= await data.json();
-        // console.log(result)
-        filterRestaurant(result?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-    }
 
-    function filterRestaurant(restaurants){
-        for(let i=0; i<restaurants?.length; i++){
-            if(restaurants[i]?.info?.id===id){
-                setMenu(restaurants[i]);
+
+    function filterRestaurant(){
+        for(let i=0; i<restaurantsList?.length; i++){
+            if(restaurantsList[i]?.info?.id===id){
+                setMenu(restaurantsList[i]);
                 return;
             }
            }
