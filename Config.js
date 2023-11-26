@@ -5,15 +5,16 @@ export const IMG_MENU_ICON_URL= "https://static.thenounproject.com/png/703781-20
 
 export const IMG_CLOSE_ICON_URL= "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_XuQbHGh0o1QSfzcAJT9S56ke3w51lywTSA&usqp=CAU";
 
+const PROXY_URL='https://cors-anywhere.herokuapp.com/';
+
 export const IMG_CDN_URL="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/";
 // "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/";
 
-export const FETCH_MENU_URL =
-  "https://cors-anywhere.herokuapp.com/https://www.swiggy.com/dapi/menu/v4/full?lat=12.9351929&lng=77.62448069999999&menuId=689427";
+export const FETCH_MENU_URL = PROXY_URL+ "https://www.swiggy.com/dapi/menu/v4/full?lat=12.9351929&lng=77.62448069999999&menuId=689427";
 
   export const FETCH_PROFILE_URL = "https://api.github.com/users/HiteshGaikwad";
 
-  export const FETCH_RESTAURANT_URL = "https://cors-anywhere.herokuapp.com/https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&page_type=DESKTOP_WEB_LISTING";
+  export const FETCH_RESTAURANT_URL = PROXY_URL+"https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&page_type=DESKTOP_WEB_LISTING";
 
 export const RestraurantList = [
     {
