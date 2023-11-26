@@ -25,10 +25,10 @@ const Cart=()=>{
         </div>
         <div className="flex flex-col items-center">
             {
-                itemsList?.length===0 ? <h className="text-3xl flex justify-center items-center w-full h-96 font-bold">Your cart is empty..!!</h> :
+                itemsList?.length===0 ? <h1 className="text-3xl flex justify-center items-center w-full h-96 font-bold">Your cart is empty..!!</h1> :
                 itemsList?.map((item,index)=>{
                     return (
-                    <div key={index} className="flex gap-4 m-3 w-2/4 items-center shadow-xl p-3 rounded-xl shadow-gray-500">
+                    <div key={index} className="flex gap-4 m-3 sm:w-2/4 items-center shadow-xl p-3 rounded-xl shadow-gray-500">
                 <img className="sm:w-64 w-40 sm:h-44 h-32 rounded-2xl shadow-lg shadow-gray-500" src={IMG_CDN_URL+item?.info?.cloudinaryImageId}/>
                 <div className="flex flex-col sm:gap-3 sm:my-5 my-2">
                     <h1 className="sm:text-2xl text-lg font-semibold sm:font-bold">{item?.info?.name}</h1>

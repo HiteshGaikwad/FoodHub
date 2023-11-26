@@ -45,14 +45,14 @@ const Restraurant=()=>{
            setFilteredRestraurant(data);
           }}>Search</button> 
        </div>
-       <div className="flex w-full justify-center">
-      <div className="flex w-11/12 p-3 flex-wrap  my-5 gap-5">
+       <div className="flex sm:w-full justify-center">
+      <div className="flex sm:w-11/12 p-3 flex-wrap  my-5 gap-5">
         {
           filteredRestraurant?.length===0?<h1 className="sm:text-4xl text-xl font-bold w-full h-72 flex justify-center items-center">No Match Found For Your Search...!!</h1>:
             filteredRestraurant?.map((restraurant)=>{
-                return (<Link className="flex w-20 sm:w-80 p-1 rounded-lg shadow-lg flex-col shadow-gray-500 flex-wrap gap-2 transition-transform ease-linear hover:scale-105 duration-200" to={"/restaurant/"+restraurant?.info?.id} key={restraurant?.info?.id}><RestraurantCard restraurant={restraurant} /></Link>)
+                return (<Link className="flex w-24 sm:w-80 sm:p-1 rounded-lg shadow-lg flex-col shadow-gray-500 flex-wrap gap-2 transition-transform ease-linear hover:scale-105 duration-200" to={"/restaurant/"+restraurant?.info?.id} key={restraurant?.info?.id}><RestraurantCard restraurant={restraurant} /></Link>)
             })
-        }
+        } 
       </div>
       </div>
       </>

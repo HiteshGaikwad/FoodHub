@@ -21,11 +21,11 @@ class Profile extends React.Component{
 
     render(){
         return(
-            <div className="my-4 flex justify-center gap-7">
-            <img className="rounded-full w-72 max:sm:h-72 sm:w-96" src={this.state.profileInfo?.avatar_url} alt="profile picture"/>
-            <div className="flex flex-col gap-7 w-2/5 justify-center">
-            <h1 className="sm:text-5xl text-3xl font-bold sm:font-semibold">{this.state.profileInfo?.name}</h1>
-            <div className="flex justify-between ">
+            <div className="m-4 p-2 sm:my-4 flex flex-col sm:flex-row items-center sm:justify-center gap-7">
+            <img className="rounded-full w-48 h-48 sm:h-96 sm:w-96" src={this.state.profileInfo?.avatar_url} alt="profile picture"/>
+            <div className="flex flex-col gap-4 sm:gap-7 sm:w-2/5 sm:justify-center">
+            <h1 className="sm:text-5xl text-2xl font-bold sm:font-semibold">{this.state.profileInfo?.name}</h1>
+            <div className="flex gap-5 sm:justify-between ">
                 <h2 className="sm:text-xl text-md font-semibold">Software Developer</h2>
                 <h2 className="sm:text-xl text-md sm:mr-40 font-semibold">{this.state.profileInfo?.location}</h2>
             </div>
