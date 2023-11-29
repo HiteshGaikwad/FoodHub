@@ -62,8 +62,8 @@ const RestaurantDetails=()=>{
                 <h4 className={menu?.info?.availability?.opened===true?"text-lime-500 sm:font-medium font-normal text-sm sm:text-lg flex text-center items-center justify-center w-20 h-8 sm:w-28 sm:h-12 rounded-lg shadow-md shadow-gray-600":"text-red-600 sm:font-medium font-normal text-sm sm:text-lg flex text-center items-center justify-center w-20 h-8 sm:w-28 sm:h-12 rounded-lg shadow-md shadow-gray-600"}>{menu?.info?.availability?.opened===true?"Open Now":"Close Now"}</h4>
                 </div>
                 <div className="sm:w-36 w-32">
-                    <h3 className="sm:p-2 p-1 max-sm:text-sm text-center shadow shadow-gray-500">{"⭐ "+menu?.info?.avgRating}</h3>
-                    <h4 className="sm:p-2 p-1 max-sm:text-xs text-center  shadow-md shadow-gray-500">{menu?.info?.totalRatingsString+" ratings"}</h4>
+                    <h3 className="sm:p-2 p-1 max-sm:text-sm text-center shadow shadow-gray-500">⭐ {menu?.info?.avgRating===undefined?" 3.2":menu?.info?.avgRating}</h3>
+                    <h4 className="sm:p-2 p-1 max-sm:text-xs text-center  shadow-md shadow-gray-500">{menu?.info?.totalRatingsString===undefined?"2.3k+":menu?.info?.totalRatingsString} ratings</h4>
                 </div>
                 </div>
             </div>

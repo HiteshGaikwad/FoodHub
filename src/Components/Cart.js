@@ -24,7 +24,7 @@ const Cart=()=>{
             <h1 className="sm:text-5xl text-2xl font-bold">Your Cart</h1>
             <button className="sm:mr-10 mr-6 sm:w-32 w-24 sm:h-14 h-10 rounded-lg sm:rounded-xl  sm:text-xl text-md font-semibold bg-orange-400 flex justify-center items-center hover:bg-orange-500 hover:font-bold" onClick={()=> handleClearCart()}>Clear Cart</button>
         </div>
-        <div className="flex flex-col min-h-[300px]  items-center">
+        <div className="flex flex-col min-h-[300px] max-sm:min-h-[400px]  items-center">
             {
                 itemsList?.length===0 ?
                 <div className="flex flex-col gap-5 justify-center items-center w-full h-96">
