@@ -66,7 +66,7 @@ const Restraurant=()=>{
     return ((allRestraurants.length===0)?<Shimmer/>:
       <div className="flex flex-col max-sm:min-h-screen sm:min-h-screen">
       <div className=" m-3 p-4 flex space-x-6 justify-center">
-        <input className="w-96 h-8 sm:h-12 rounded-xl outline-none p-2 bg-gray-200 focus:bg-white focus:shadow-lg focus:shadow-slate-500 sm:placeholder:text-xl sm:placeholder:p-2" placeholder="Search for restaurant and food" value={searchText} onChange={(e)=>{setSearchText(e.target.value)}}/>
+        <input className="max-sm:w-96 w-2/4 h-8 sm:h-12 rounded-xl outline-none p-2 bg-gray-200 focus:bg-white focus:shadow-lg focus:shadow-slate-500 sm:placeholder:text-xl sm:placeholder:p-2" placeholder="Search for restaurant and food" value={searchText} onChange={(e)=>{setSearchText(e.target.value)}}/>
            <button className="sm:w-32 w-24 max-sm:h-8 h-12 sm:rounded-full rounded-xl bg-gray-200 text-sm sm:text-xl font-semibold hover:bg-gray-300 shadow-md shadow-gray-500" onClick={ (e)=>{
             const data=findSearchText(searchText, allRestraurants);
            setFilteredRestraurant(data);

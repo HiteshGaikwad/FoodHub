@@ -21,7 +21,7 @@ class Profile extends React.Component{
 
     render(){
         return(
-            <div className="m-4 p-2 sm:my-4 flex flex-col sm:flex-row items-center sm:justify-center gap-7">
+            <div className="m-4 p-2 sm:my-4 flex flex-col sm:flex-row max-sm:min-h-[70vh] items-center sm:justify-center gap-7">
             <img className="rounded-full w-48 h-48 sm:h-96 sm:w-96" src={this.state.profileInfo?.avatar_url} alt="profile picture"/>
             <div className="flex flex-col gap-4 sm:gap-7 sm:w-2/5 sm:justify-center">
             <h1 className="sm:text-5xl text-2xl font-bold sm:font-semibold">{this.state.profileInfo?.name}</h1>
