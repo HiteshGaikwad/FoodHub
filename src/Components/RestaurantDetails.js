@@ -31,9 +31,11 @@ const RestaurantDetails=()=>{
 
 
     function filterRestaurant(){
-        for(let i=0; i<restaurantsList?.length; i++){
-            if(restaurantsList[i]?.info?.id===id){
-                setMenu(restaurantsList[i]);
+        // console.log(restaurantsList[0])
+        const list=restaurantsList;
+        for(let i=0; i<list?.length; i++){
+            if(list[i]?.info?.id===id){
+                setMenu(list[i]);
                 return;
             }
            }
@@ -46,20 +48,20 @@ const RestaurantDetails=()=>{
     }
     
     return ((menu.length===0)?<Shimmer/>:
-        <div className="flex max-sm:my-10 max-sm:flex-col max-sm:align-middle max-sm:min-h-screen sm:gap-7 gap-11 mx-12 my-8">
-            <div className="w-2/4 max-sm:w-screen h-2/4">
-                <img className="sm:w-full w-2/3 h-2/5 sm:h-80 rounded-xl" src={IMG_CDN_URL+menu?.info?.cloudinaryImageId}/>  
+        <div className="flex max-sm:my-5 max-sm:flex-col max-sm:align-middle max-sm:min-h-screen min-h-[50vh] sm:gap-7 gap-11 sm:mx-12 max-sm:px-2 sm:my-8">
+            <div className="w-2/4 max-sm:w-full h-2/4">
+                <img className="sm:w-full w-[95vw] shadow-md shadow-gray-600 h-64 sm:h-80 rounded-xl" src={IMG_CDN_URL+menu?.info?.cloudinaryImageId}/>  
             </div>
-            <div className="flex items-center max-sm:w-4/5 max-sm:h-fit flex-col w-full">
+            <div className="flex items-center max-sm:w-full max-sm:h-fit flex-col w-full">
             <div className="flex max-sm:p-5 flex-col gap-3 w-full h-fit sm:h-64 p-2 sm:p-5 rounded-xl shadow-lg shadow-gray-500">
-            <h1 className="sm:text-4xl text-xl font-bold">{menu?.info?.name}</h1>
-            <div className="flex max-sm:flex-col max-sm:gap-6 justify-between align-middle" >
-                <div className="flex flex-col gap-1 sm:gap-3 font-normal sm:font-medium text-md sm:text-xl">
-                <h3>{menu?.info?.cuisines.join(", ")}</h3>
+            <h1 className="sm:text-4xl text-2xl font-bold">{menu?.info?.name}</h1>
+            <div className="flex  max-sm:gap-6 justify-between align-middle" >
+                <div className="flex flex-col gap-1 sm:gap-3 font-normal sm:font-medium text-lg sm:text-xl">
+                <h3 className="font-semibold">{menu?.info?.cuisines.join(", ")}</h3>
                 <h5>{menu?.info?.areaName}</h5>
                 <h4 className={menu?.info?.availability?.opened===true?"text-lime-500 sm:font-medium font-normal text-sm sm:text-lg flex text-center items-center justify-center w-20 h-8 sm:w-28 sm:h-12 rounded-lg shadow-md shadow-gray-600":"text-red-600 sm:font-medium font-normal text-sm sm:text-lg flex text-center items-center justify-center w-20 h-8 sm:w-28 sm:h-12 rounded-lg shadow-md shadow-gray-600"}>{menu?.info?.availability?.opened===true?"Open Now":"Close Now"}</h4>
                 </div>
-                <div className="sm:w-36 w-20">
+                <div className="sm:w-36 w-32">
                     <h3 className="sm:p-2 p-1 max-sm:text-sm text-center shadow shadow-gray-500">{"⭐ "+menu?.info?.avgRating}</h3>
                     <h4 className="sm:p-2 p-1 max-sm:text-xs text-center  shadow-md shadow-gray-500">{menu?.info?.totalRatingsString+" ratings"}</h4>
                 </div>

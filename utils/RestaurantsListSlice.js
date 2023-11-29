@@ -7,7 +7,7 @@ const RestaurantsListSlice= createSlice({
     },
     reducers:{
         addRestaurants:(state,action)=>{
-            state.list.push(...action.payload);
+            state.list=action.payload;
         }
     }
 })

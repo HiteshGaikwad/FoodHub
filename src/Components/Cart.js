@@ -2,6 +2,7 @@ import {useSelector} from "react-redux";
 import {IMG_CDN_URL} from "../../Config"
 import {useDispatch} from "react-redux";
 import {removeItems,clearCart} from "../../utils/cartSlice"
+import { Link } from "react-router-dom";
 
 const Cart=()=>{
 
@@ -28,14 +29,20 @@ const Cart=()=>{
                 itemsList?.length===0 ? <h1 className="text-3xl flex justify-center items-center w-full h-96 font-bold">Your cart is empty..!!</h1> :
                 itemsList?.map((item,index)=>{
                     return (
-                    <div key={index} className="flex gap-4 m-3 sm:w-2/4 items-center shadow-xl p-3 rounded-xl shadow-gray-500">
-                <img className="sm:w-64 w-40 sm:h-44 h-32 rounded-2xl shadow-lg shadow-gray-500" src={IMG_CDN_URL+item?.info?.cloudinaryImageId}/>
-                <div className="flex flex-col sm:gap-3 sm:my-5 my-2">
+             <div  key={index} className="flex flex-col m-2 sm:w-2/4 p-2 items-center shadow-xl rounded-xl shadow-gray-500">
+
+               <Link to={"/restaurant/"+item?.info?.id} className="w-full">
+                <div className="flex w-full   gap-3 items-center rounded-xl ">
+                <img className="sm:w-2/6 w-40 sm:h-48 h-32 rounded-2xl shadow-lg shadow-gray-500" src={IMG_CDN_URL+item?.info?.cloudinaryImageId}/>
+                <div className="flex flex-col w-4/6  sm:gap-3  max-sm:my-2">
                     <h1 className="sm:text-2xl text-lg font-semibold sm:font-bold">{item?.info?.name}</h1>
-                    <h3 className="sm:text-xl text-md flex flex-wrap font-normal sm:font-semibold">{item?.info?.cuisines.join(", ")}</h3>
+                    <h3 className="sm:text-xl text-md flex flex-wrap  font-normal sm:font-semibold">{item?.info?.cuisines.join(", ")}</h3>
                     <h2 className="sm:text-lg text-md font-medium">{item?.info?.costForTwo}</h2>
-                    <button className=" sm:w-36 w-28 sm:mt-2 mt-1 sm:h-9 h-7 text-sm sm:text-lg font-semibold rounded-lg bg-orange-300 hover:bg-orange-400" onClick={()=>handleRemoveItems(index)}>Remove Item</button>    
                 </div>
+             </div>
+             </Link>
+
+             <button className=" sm:w-72 sm:ml-56 ml-16 w-28 sm:mt-2 mt-1 sm:h-9 h-7 text-sm sm:text-lg font-semibold rounded-lg bg-orange-300 hover:bg-orange-400" onClick={()=>handleRemoveItems(index)}>Remove Item</button> 
             </div>
                     )
                 })
