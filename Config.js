@@ -15,7 +15,7 @@ export const FETCH_MENU_URL = `${CORSPROXY}https://www.swiggy.com/dapi/menu/v4/f
 
   export const FETCH_PROFILE_URL = "https://api.github.com/users/HiteshGaikwad";
 
-  export const FETCH_RESTAURANT_URL = `${CORSPROXY}https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&page_type=DESKTOP_WEB_LISTING`;
+  export const FETCH_RESTAURANT_URL = `${PROXY_URL}https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&page_type=DESKTOP_WEB_LISTING`;
 
 export const RestraurantList = [
     {

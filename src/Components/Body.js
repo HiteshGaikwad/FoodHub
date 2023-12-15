@@ -36,17 +36,17 @@ const Restraurant=()=>{
         setFilteredRestraurant(restaurantsList)
         setAllRestraurant(restaurantsList);
       } else{
-        const data= await axios.get(FETCH_RESTAURANT_URL);
-        
-        const forMobile= data.data.data.cards[3].card?.card?.gridElements?.infoWithStyle?.restaurants;
+        const data= await fetch(FETCH_RESTAURANT_URL);
+        const result= await data.json();
+        console.log(result?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+        const forMobile= result?.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
 
-        // const forDestop= data.data.data.cards[5].card?.card?.gridElements?.infoWithStyle?.restaurants;
 
       let getDatafromRestaurant;
       if(forMobile===undefined){
-         getDatafromRestaurant= [...data.data.data.cards[5].card?.card?.gridElements?.infoWithStyle?.restaurants];
+         getDatafromRestaurant= [...result?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants];
       }else{
-         getDatafromRestaurant= [...data.data.data.cards[3].card?.card?.gridElements?.infoWithStyle?.restaurants];
+         getDatafromRestaurant= [...result?.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle?.restaurants];
       }
       
         setAllRestraurant(()=>getDatafromRestaurant)
