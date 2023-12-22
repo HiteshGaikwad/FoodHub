@@ -31,30 +31,35 @@ const Restraurant=()=>{
 
     async function getRestraurant(){
       
-      // checking data from the cache 
-      if(restaurantsList.length!==0){
-        setFilteredRestraurant(restaurantsList)
-        setAllRestraurant(restaurantsList);
-      } else{
-        const data= await fetch(FETCH_RESTAURANT_URL);
-        const result= await data.json();
-        console.log(result?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-        const forMobile= result?.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
-
-
-      let getDatafromRestaurant;
-      if(forMobile===undefined){
-         getDatafromRestaurant= [...result?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants];
-      }else{
-         getDatafromRestaurant= [...result?.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle?.restaurants];
+      try {
+        if(restaurantsList.length!==0){
+          setFilteredRestraurant(restaurantsList)
+          setAllRestraurant(restaurantsList);
+        } else{
+          const data= await fetch(FETCH_RESTAURANT_URL);
+          
+          const result= await data.json();
+          // console.log(result?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+          const forMobile= result?.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
+  
+        let getDatafromRestaurant;
+        if(forMobile===undefined){
+           getDatafromRestaurant= [...result?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants];
+        }else{
+           getDatafromRestaurant= [...result?.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle?.restaurants];
+        }
+        
+          setAllRestraurant(()=>getDatafromRestaurant)
+          setFilteredRestraurant(()=>getDatafromRestaurant)
+  
+          // storing data in the cache
+         dispatch(addRestaurants(getDatafromRestaurant));
       }
+      } catch (error) {
+        console.log("error ", error);
+      }
+      // checking data from the cache 
       
-        setAllRestraurant(()=>getDatafromRestaurant)
-        setFilteredRestraurant(()=>getDatafromRestaurant)
-
-        // storing data in the cache
-       dispatch(addRestaurants(getDatafromRestaurant));
-    }
     }
 
       const isOnline= useOnline();
