@@ -39,18 +39,17 @@ const Restraurant=()=>{
           const data= await fetch(FETCH_RESTAURANT_URL);
           
           const result= await data.json();
-          // console.log(result?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-          const forMobile= result?.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
-  
-        let getDatafromRestaurant;
-        if(forMobile===undefined){
-           getDatafromRestaurant= [...result?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants];
-        }else{
-           getDatafromRestaurant= [...result?.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle?.restaurants];
-        }
-        
-          setAllRestraurant(()=>getDatafromRestaurant)
-          setFilteredRestraurant(()=>getDatafromRestaurant)
+          console.log(result?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+          let getDatafromRestaurant= result?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
+          if(getDatafromRestaurant===undefined){
+            getDatafromRestaurant=result?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
+          }
+          
+
+        handleSetAllRestraurant(getDatafromRestaurant);
+        handleSetFilteredRestraurant(getDatafromRestaurant);
+          
+          
   
           // storing data in the cache
          dispatch(addRestaurants(getDatafromRestaurant));
@@ -60,6 +59,14 @@ const Restraurant=()=>{
       }
       // checking data from the cache 
       
+    }
+
+    function handleSetAllRestraurant(getDatafromRestaurant){
+      setAllRestraurant(getDatafromRestaurant)
+    }
+
+    function handleSetFilteredRestraurant(getDatafromRestaurant){
+      setFilteredRestraurant(getDatafromRestaurant)
     }
 
       const isOnline= useOnline();
@@ -82,6 +89,7 @@ const Restraurant=()=>{
         {
 
           filteredRestraurant.length===0?<h1 className="sm:text-4xl text-xl font-bold w-full sm:h-72 flex justify-center items-center">No Match Found For Your Search...!!</h1>:filteredRestraurant.map((restraurant)=>{
+            {console.log(filteredRestraurant.length);}
                 return (<Link className="flex w-full sm:w-80 sm:p-1 rounded-lg shadow-lg flex-col shadow-gray-500 flex-wrap gap-2 transition-transform ease-linear hover:scale-105 duration-200" to={"/restaurant/"+restraurant?.info?.id} key={restraurant?.info?.id}><RestraurantCard restraurant={restraurant} /></Link>)
             })
         } 

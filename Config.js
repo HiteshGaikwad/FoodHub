@@ -1,4 +1,5 @@
-const CORSPROXY = "https://erin-glamorous-earthworm.cyclic.app/api/proxy/swiggy/dapi/";
+// const CORSPROXY = "https://erin-glamorous-earthworm.cyclic.app/api/proxy/swiggy/dapi/";
+export const CORSPROXY = "https://corsproxy.org/?";
 
 export const IMG_LOGO_URL = "https://images.g2crowd.com/uploads/product/image/large_detail/large_detail_70f19b42819888f77a72d40d8d32f05a/foodhub.jpg";
 
@@ -11,11 +12,12 @@ const PROXY_URL='https://cors-anywhere.herokuapp.com/';
 export const IMG_CDN_URL="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/";
 // "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/";
 
-export const FETCH_MENU_URL = `${CORSPROXY}menu/v4/full?lat=12.9351929&lng=77.62448069999999&menuId=689427`;
+// export const FETCH_MENU_URL = `${CORSPROXY}menu/v4/full?lat=12.9351929&lng=77.62448069999999&menuId=689427`;
 
   export const FETCH_PROFILE_URL = "https://api.github.com/users/HiteshGaikwad";
 
-  export const FETCH_RESTAURANT_URL = `${CORSPROXY}restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&page_type=DESKTOP_WEB_LISTING`;
+  // export const FETCH_RESTAURANT_URL = `${CORSPROXY}restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&page_type=DESKTOP_WEB_LISTING`;
+  export const FETCH_RESTAURANT_URL = CORSPROXY + encodeURIComponent(`https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING`);
 
 export const RestraurantList = [
     {
