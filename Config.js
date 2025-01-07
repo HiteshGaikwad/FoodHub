@@ -24,7 +24,7 @@ export const FETCH_PROFILE_URL = "https://api.github.com/users/HiteshGaikwad";
 export const FETCH_RESTAURANT_URL =
   // CORSPROXY +
   // encodeURIComponent(
-  `http://food-hub-eight-liart.vercel.app/https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING`;
+  `https://food-hub-eight-liart.vercel.app/https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING`;
 
 // );
 

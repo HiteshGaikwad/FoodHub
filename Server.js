@@ -1,13 +1,26 @@
-const corsAnywhere = require("cors-anywhere");
+const express = require("express");
+const { createProxyMiddleware } = require("http-proxy-middleware");
 
-// Vercel Serverless Function Handler
-const server = corsAnywhere.createServer({
-  originWhitelist: [], // Allow all origins
-  removeHeaders: ["cookie", "cookie2"], // Remove headers for better security
+const app = express();
+
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*"); // Allow all origins
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
+  res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+  next();
 });
 
-module.exports = (req, res) => {
-  // Proxy the request using cors-anywhere
-  req.url = req.url.replace("/api/proxy", ""); // Strip the `/api/proxy` prefix
-  return server.emit("request", req, res);
-};
+app.use(
+  "/api/proxy",
+  createProxyMiddleware({
+    target: "https://www.swiggy.com", // Target API
+    changeOrigin: true,
+    secure: true,
+    pathRewrite: { "^/api/proxy": "" }, // Rewrite the path
+  })
+);
+
+app.listen(3000, () => console.log("Proxy running on port 3000"));
