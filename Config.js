@@ -24,8 +24,9 @@ export const FETCH_PROFILE_URL = "https://api.github.com/users/HiteshGaikwad";
 export const FETCH_RESTAURANT_URL =
   // CORSPROXY +
   // encodeURIComponent(
-  `https://food-hub-id1g-ahksr9hv8-hiteshs-projects-a0cecc17.vercel.app/api/proxy/https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING`;
+  `https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING`;
 
+// https://food-hub-id1g-ahksr9hv8-hiteshs-projects-a0cecc17.vercel.app/api/proxy/
 // );
 
 export const RestraurantList = [
@@ -42,7 +43,7 @@ export const RestraurantList = [
       cloudinaryImageId: "bdcd233971b7c81bf77e1fa4471280eb",
       cuisines: ["American", "Snacks", "Biryani"],
       tags: [],
-      costForTwo: 30000,
+      costForTwo: 300,
       costForTwoString: "₹300 FOR TWO",
       deliveryTime: 31,
       minDeliveryTime: 31,
@@ -167,7 +168,7 @@ export const RestraurantList = [
       cloudinaryImageId: "sboh9oor0cvp6ztsyhvj",
       cuisines: ["Pizzas", "Italian", "Fast Food", "Snacks", "Beverages"],
       tags: [],
-      costForTwo: 30000,
+      costForTwo: 300,
       costForTwoString: "₹300 FOR TWO",
       deliveryTime: 33,
       minDeliveryTime: 33,
@@ -287,7 +288,7 @@ export const RestraurantList = [
       cloudinaryImageId: "ykboewqeoxnne8fgrnui",
       cuisines: ["Indian", "Chinese", "Tandoor", "Thalis", "Fast Food"],
       tags: [],
-      costForTwo: 20000,
+      costForTwo: 200,
       costForTwoString: "₹200 FOR TWO",
       deliveryTime: 25,
       minDeliveryTime: 25,
@@ -407,7 +408,7 @@ export const RestraurantList = [
       cloudinaryImageId: "iqh7ew5ldfgvpd5dpz60",
       cuisines: ["Burgers", "American"],
       tags: [],
-      costForTwo: 35000,
+      costForTwo: 350,
       costForTwoString: "₹350 FOR TWO",
       deliveryTime: 39,
       minDeliveryTime: 39,
@@ -532,7 +533,7 @@ export const RestraurantList = [
       cloudinaryImageId: "zw4qx2szsy9kbszk9n3d",
       cuisines: ["South Indian", "Biryani", "North Indian"],
       tags: [],
-      costForTwo: 20000,
+      costForTwo: 200,
       costForTwoString: "₹200 FOR TWO",
       deliveryTime: 25,
       minDeliveryTime: 25,
@@ -652,7 +653,7 @@ export const RestraurantList = [
       cloudinaryImageId: "kx2ghnwagcnqjtmd5jbc",
       cuisines: ["North Indian", "Snacks", "Beverages"],
       tags: [],
-      costForTwo: 30000,
+      costForTwo: 300,
       costForTwoString: "₹300 FOR TWO",
       deliveryTime: 31,
       minDeliveryTime: 31,

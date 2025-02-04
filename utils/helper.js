@@ -1,6 +1,5 @@
-
-  export function findSearchText(searchText,allRestraurants){
-    return allRestraurants.filter((restrau)=> restrau?.info?.name?.toLowerCase().includes(searchText.toLowerCase()));
-  }
-
-   
+export function findSearchText(searchText, allRestraurants) {
+  return allRestraurants.filter((restrau) =>
+    restrau?.data?.name?.toLowerCase().includes(searchText.toLowerCase())
+  );
+}
